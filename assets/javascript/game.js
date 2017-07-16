@@ -6,8 +6,11 @@
   var total = 0;
   var val;
   var counter;
+  var wins = 0;
+  var losses = 0;
 
-  $(document).ready(function() {
+  $(document).ready(function gamestart() {
+
 
     $("#randomnumber").html(randomNum);
     $("#gem1").attr("data-gem", gem1);
@@ -17,6 +20,21 @@
 
     $(".btn").on('click', function() {
       clickpic($(this).data('gem'));
+      $("#totalscore").html("Your total so far: " + total);
+      if (total === randomNum) {
+        wins++;
+        $("#winslosses").html("Wins: " + wins + "<br>Losses: " + losses);
+        alert("You Win!");
+
+        gamestart();
+      } else if (total > randomNum) {
+        losses++;
+        $("#winslosses").html("Wins: " + wins + "<br>Losses: " + losses);
+        alert("Game Over You Lose!");
+
+        gamestart();
+      };
+
     });
 
 
@@ -25,8 +43,8 @@
     console.log(gem2);
     console.log(gem3);
     console.log(gem4);
-
     console.log(total);
+
   });
 
   function randomizeNumber() {

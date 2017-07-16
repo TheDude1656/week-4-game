@@ -21,25 +21,23 @@ $(document).ready(function() {
 
 
   $("#randomnumber").html(randomNum);
-  $("#gem1").attr("data-gem", gem1);
-  $("#gem2").attr("data-gem", gem2);
-  $("#gem3").attr("data-gem", gem3);
-  $("#gem4").attr("data-gem", gem4);
+  $("#gem1").attr("gem-val", gem1);
+  $("#gem2").attr("gem-val", gem2);
+  $("#gem3").attr("gem-val", gem3);
+  $("#gem4").attr("gem-val", gem4);
 
   function clickpic() {
 
-    counter = $(".btn").data("gem");
+    counter = $(".btn").attr("gem-val");
     total += counter;
   };
 
   $(".btn").click(clickpic());
 
-
-
-
   console.log(gem1);
   console.log(gem2);
   console.log(gem3);
   console.log(gem4);
+  console.log(counter);
   console.log(total);
 });

@@ -1,24 +1,13 @@
-$(document).ready(function() {
   var randomNum = randomizeNumber();
   var gem1 = randomGemNumber();
   var gem2 = randomGemNumber();
   var gem3 = randomGemNumber();
   var gem4 = randomGemNumber();
-  var total;
+  var total = 0;
   var val;
   var counter;
 
-  function randomizeNumber() {
-    return Math.floor(Math.random() * (120 - 19 + 1) + 19);
-
-  };
-
-  function randomGemNumber() {
-    return Math.floor(Math.random() * (12 - 1 + 1) + 1);
-
-  };
-
-
+$(document).ready(function() {
 
   $("#randomnumber").html(randomNum);
   $("#gem1").attr("data-gem", gem1);
@@ -26,14 +15,9 @@ $(document).ready(function() {
   $("#gem3").attr("data-gem", gem3);
   $("#gem4").attr("data-gem", gem4);
 
-  function clickpic() {
-
-    counter = $(".btn").data("gem");
-    total += counter;
-  };
-
-  $(".btn").click(clickpic());
-
+  $(".btn").on('click', function(){
+    clickpic($(this).data('gem'));
+  })
 
 
 
@@ -43,3 +27,18 @@ $(document).ready(function() {
   console.log(gem4);
   console.log(total);
 });
+
+function randomizeNumber() {
+  return Math.floor(Math.random() * (120 - 19 + 1) + 19);
+
+};
+
+function randomGemNumber() {
+  return Math.floor(Math.random() * (12 - 1 + 1) + 1);
+
+};
+
+function clickpic(currentGem) {
+  total += currentGem;
+  console.log(total);
+};

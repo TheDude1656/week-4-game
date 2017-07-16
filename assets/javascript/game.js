@@ -1,12 +1,33 @@
-$(document).ready(function() {
   var randomNum = randomizeNumber();
   var gem1 = randomGemNumber();
   var gem2 = randomGemNumber();
   var gem3 = randomGemNumber();
   var gem4 = randomGemNumber();
-  var total;
+  var total = 0;
   var val;
   var counter;
+
+  $(document).ready(function() {
+
+    $("#randomnumber").html(randomNum);
+    $("#gem1").attr("data-gem", gem1);
+    $("#gem2").attr("data-gem", gem2);
+    $("#gem3").attr("data-gem", gem3);
+    $("#gem4").attr("data-gem", gem4);
+
+    $(".btn").on('click', function() {
+      clickpic($(this).data('gem'));
+    });
+
+
+
+    console.log(gem1);
+    console.log(gem2);
+    console.log(gem3);
+    console.log(gem4);
+
+    console.log(total);
+  });
 
   function randomizeNumber() {
     return Math.floor(Math.random() * (120 - 19 + 1) + 19);
@@ -18,26 +39,7 @@ $(document).ready(function() {
 
   };
 
-
-
-  $("#randomnumber").html(randomNum);
-  $("#gem1").attr("gem-val", gem1);
-  $("#gem2").attr("gem-val", gem2);
-  $("#gem3").attr("gem-val", gem3);
-  $("#gem4").attr("gem-val", gem4);
-
-  function clickpic() {
-
-    counter = $(".btn").attr("gem-val");
-    total += counter;
+  function clickpic(currentGem) {
+    total += currentGem;
+    console.log(total);
   };
-
-  $(".btn").click(clickpic());
-
-  console.log(gem1);
-  console.log(gem2);
-  console.log(gem3);
-  console.log(gem4);
-  console.log(counter);
-  console.log(total);
-});

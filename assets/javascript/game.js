@@ -21,18 +21,18 @@ $(document).ready(function() {
 
 
   $("#randomnumber").html(randomNum);
-  $("#gem1").attr("gem-val", gem1);
-  $("#gem2").attr("gem-val", gem2);
-  $("#gem3").attr("gem-val", gem3);
-  $("#gem4").attr("gem-val", gem4);
+  $("#gem1").attr("data-gem", gem1);
+  $("#gem2").attr("data-gem", gem2);
+  $("#gem3").attr("data-gem", gem3);
+  $("#gem4").attr("data-gem", gem4);
 
   function clickpic() {
 
-    counter = parseInt($(this).attr("gem-val"));
+    counter = $(".btn").data("gem");
     total += counter;
   };
 
-  $("#btn").click(clickpic());
+  $(".btn").click(clickpic());
 
 
 

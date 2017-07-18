@@ -1,11 +1,5 @@
-  var randomNum = randomizeNumber();
-  var gem1 = randomGemNumber();
-  var gem2 = randomGemNumber();
-  var gem3 = randomGemNumber();
-  var gem4 = randomGemNumber();
+  var randomNum, gem1, gem2, gem3, gem4;
   var total = 0;
-  var val;
-  var counter;
   var wins = 0;
   var losses = 0;
 
@@ -43,7 +37,14 @@
   };
 
   function gamestart() {
+    total = 0;
+    $("#totalscore").html("Your total so far: " + total);
+    randomNum = randomizeNumber();
     $("#randomnumber").html(randomNum);
+    gem1 = randomGemNumber();
+    gem2 = randomGemNumber();
+    gem3 = randomGemNumber();
+    gem4 = randomGemNumber();
     $("#gem1").attr("data-gem", gem1);
     $("#gem2").attr("data-gem", gem2);
     $("#gem3").attr("data-gem", gem3);

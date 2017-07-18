@@ -39,6 +39,7 @@
   function gamestart() {
     total = 0;
     $("#totalscore").html("Your total so far: " + total);
+    5
     randomNum = randomizeNumber();
     $("#randomnumber").html(randomNum);
     gem1 = randomGemNumber();
